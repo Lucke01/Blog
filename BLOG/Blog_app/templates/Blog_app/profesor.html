@@ -1,0 +1,40 @@
+{% extends "Blog_app/Padre.html" %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+    
+    <h1> Profesor</h1>
+
+
+{% endblock%}
+
+{% block formularios %}
+    
+    {% if alumnoForm.error %}
+
+    <p style="color:red"> ingreso mal los datos </p>
+
+    {% endif %}
+
+    <!-- formulario de profesor -->
+
+    <form action = "{% url 'blogApp:Profesor' %}", method = "POST">{% csrf_token %}
+
+            {{ profeForm.as_p }}
+
+        <input type = "submit", value = 'Enviar'>
+
+
+
+
+
+
+    </form>
+
+
+
+
+
+{% endblock%}

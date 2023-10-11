@@ -1,0 +1,45 @@
+{% extends "Blog_app/Padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    
+    <h1> Busquedas</h1>
+
+    
+
+
+{% endblock%}
+
+
+
+{% block formularios %}
+        <!-- formulario de busqueda -->
+
+        <p> Ingrese la comision que desea buscar...</p>
+
+        <form action = "/Blog_app/buscar/" method="GET">
+
+            <input type = "number", name = "comision", id = "comision">
+
+            <input type="submit", value = "Buscar">
+
+        </form>
+
+        <p> {{comision}} </p>
+
+
+    {% if materia %}
+
+        <ul>
+        {% for m in materia %}
+
+            <li>{{m.nombre}} </li>
+            <li>{{m.comision}} </li>
+
+        {% endfor %}
+        </ul>
+    
+        {% endif %}
+
+{% endblock %}

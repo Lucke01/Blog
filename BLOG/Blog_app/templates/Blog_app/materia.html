@@ -1,0 +1,33 @@
+{% extends "Blog_app/Padre.html" %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+    
+    <h1> Materia</h1>
+
+   
+
+{% endblock%}
+
+{% block formularios %}
+
+    {% if miFormulario.error %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+
+    {% endif %}
+
+    <!--Formulario de las materias-->
+
+    <form action="{% url 'blogApp:Materia' %}" , method = 'POST'>{% csrf_token %} 
+
+            {{ miFormulario.as_p }}
+
+        <input type="submit", value="Enviar">   
+
+        
+    </form>
+    
+{% endblock%}
